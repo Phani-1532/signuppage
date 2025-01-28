@@ -13,10 +13,10 @@ function App() {
         <div className='underline'></div>
       </div>
       <div className='inputs'>
-        <div className='input'>
+      {action === 'Log In' ? null : <div className='input'>
           <img src={user_icon} alt='user' />
           <input type='text' placeholder='Enter your Name' required />
-        </div>
+        </div>}
         <div className='input'>
           <img src={email_icon} alt='user' />
           <input type='email' placeholder='Enter your Email' required />
@@ -26,12 +26,12 @@ function App() {
           <input type='password' placeholder='Enter your Password' required />
         </div>
       </div>
-      <div className='forgot-password'>
+      {action === 'Sign Up' ? null : <div className='forgot-password'>
         <p>Forgotten Password? <a href='#' className='link'>Click here!</a></p>
-      </div>
+      </div>}
       <div className='submit-container'>
-        <div className='submit' onClick={() => setAction('Sign Up')}>SignUp</div>
-        <div className='submit' onClick={() => setAction('Log In')}>Login</div>
+        <div className= {action === 'Log In' ? 'submit gray' : 'submit'} onClick={() => setAction('Sign Up')}>SignUp</div>
+        <div className= {action === 'Sign Up' ? 'submit gray' : 'submit'} onClick={() => setAction('Log In')} >Login</div>
       </div>
     </div>
   );
